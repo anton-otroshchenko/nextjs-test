@@ -3,9 +3,10 @@
 import { useEffect, useState } from 'react';
 import { use } from 'react';
 import Head from "next/head";
+import {Product} from "@/types/product/product.type";
 
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
-  const [product, setProduct] = useState<any>(null);
+  const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

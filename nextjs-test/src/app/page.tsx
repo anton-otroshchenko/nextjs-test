@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import ProductItem from "@/components/ProductItem/ProductItem";
+import {Product} from "@/types/product/product.type";
 
 export default function ProductListing() {
-  const [products, setProducts] = useState<any[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -52,20 +54,8 @@ export default function ProductListing() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProducts.map((product: any) => (
-              <div
-                  key={product.id}
-                  className="p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200"
-              >
-                <a
-                    href={`/products/${product.id}`}
-                    className="text-lg font-semibold text-white hover:text-blue-500"
-                >
-                  {product.name}
-                </a>
-                <p className="mt-2 text-white">{product.description}</p>
-                <p className="mt-4 text-sm font-semibold text-white">Price: ${product.price}</p>
-              </div>
+          {filteredProducts.map((product: Product) => (
+              <ProductItem product={product} key={product.id} />
           ))}
         </div>
       </div>
