@@ -13,6 +13,7 @@ npm run dev to start the application
 ### Decisions
 
 Decided to use Typescript to have strict typing
+Decided to include DockerFile but not use in the deployment process since its faster and easier to deploy it in Vercel directly
 
 ### Assumptions
 
